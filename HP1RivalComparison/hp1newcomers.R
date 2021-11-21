@@ -1,17 +1,14 @@
 library(readr)
 library(ggplot2)
 library(ggrepel)
-library(extrafont)
 library(scales)
 library(hms)
 
-hp1head <- read_csv("datablog/R/HP1 Newcomers.csv", 
+hp1head <- read_csv("https://raw.githubusercontent.com/artfulinfo/R-Vizardry/main/HP1RivalComparison/HP1%20Newcomers.csv", 
   col_types = cols(Date = col_datetime(format = "%d/%m/%Y %H:%M"), 
   Time = col_time(format = "%H:%M:%S")))
 
 head(hp1head)
-
-loadfonts(device = "win")
 
 ggplot(data=hp1head, aes(x=Date, y=Time)) +
   geom_step(aes(color=Runner))+
